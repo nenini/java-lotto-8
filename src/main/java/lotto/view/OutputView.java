@@ -43,5 +43,8 @@ public class OutputView {
         System.out.println(ViewMessages.TOTAL_YIELD.format(percentText));
     }
 
+    public static void printError(String errorMessage) {
+        System.out.println(errorMessage);
+    }
 
 }
