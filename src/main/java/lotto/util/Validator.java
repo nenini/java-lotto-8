@@ -38,4 +38,16 @@ public class Validator {
         }
     }
 
+    public static void requiredBonusRange1To45(int number){
+        if (number > 45||number < 1){
+            AppException.throwError(ErrorCode.OUT_OF_NUMBER_RANGE);
+        }
+    }
+
+    public static void requiredBonusNotContainWinningNumbers(List<Integer> numbers,int number){
+        if(numbers.contains(number)){
+            AppException.throwError(ErrorCode.BONUS_CONFLICT);
+        }
+    }
+
 }
