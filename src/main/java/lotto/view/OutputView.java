@@ -1,5 +1,6 @@
 package lotto.view;
 
+import lotto.domain.Lotto;
 import lotto.global.message.StatLine;
 import lotto.global.message.ViewMessages;
 
@@ -25,8 +26,8 @@ public class OutputView {
         System.out.println(ViewMessages.PURCHASED_COUNT.format(count));
     }
 
-    public static void printLottoTicket(List<Integer> numbers) {
-        System.out.println(numbers.toString());
+    public static void printLottoTicket(Lotto lotto) {
+        System.out.println(lotto.getNumbers().toString());
     }
 
     public static void printResultHeader() {
