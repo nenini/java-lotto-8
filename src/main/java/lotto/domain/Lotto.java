@@ -2,6 +2,7 @@ package lotto.domain;
 
 import lotto.util.Validator;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -25,8 +26,9 @@ public class Lotto {
     }
 
     public List<Integer> sortNumbers(List<Integer> numbers) {
-        Collections.sort(numbers);
-        return Collections.unmodifiableList(numbers);
+        List<Integer> copyNumbers = new ArrayList<>(numbers);
+        Collections.sort(copyNumbers);
+        return Collections.unmodifiableList(copyNumbers);
 
     }
 
