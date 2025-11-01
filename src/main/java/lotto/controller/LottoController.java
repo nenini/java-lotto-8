@@ -1,18 +1,22 @@
 package lotto.controller;
 
 import lotto.domain.Lotto;
+import lotto.domain.Rank;
 import lotto.domain.WinningLottoNumber;
 import lotto.service.LottoMachine;
+import lotto.service.LottoVerify;
 import lotto.util.Parser;
 import lotto.util.Validator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 import java.util.List;
+import java.util.Map;
 
 
 public class LottoController {
     LottoMachine lottoMachine = new LottoMachine();
+    LottoVerify lottoVerify = new LottoVerify();
 
     public void run() {
         int purchase = purchaseWithRetry();
@@ -23,9 +27,11 @@ public class LottoController {
             OutputView.printLottoTicket(lotto);
         }
         WinningLottoNumber winningLottoNumber = winningWithRetry();
-        //TODO : 당첨 판정
 
+        Map<Rank, Integer> lottoRankCounts = lottoVerify.verify(lottoBundle, winningLottoNumber);
 
+        OutputView.printResultHeader();
+        OutputView.printStatLines(lottoRankCounts);
     }
 
     private int purchaseWithRetry() {
