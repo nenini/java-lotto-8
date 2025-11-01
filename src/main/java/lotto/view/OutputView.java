@@ -1,10 +1,12 @@
 package lotto.view;
 
 import lotto.domain.Lotto;
+import lotto.domain.Rank;
 import lotto.global.message.StatLine;
 import lotto.global.message.ViewMessages;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     public static void askPurchase() {
@@ -38,6 +40,14 @@ public class OutputView {
 
     public static void printStatLine(StatLine line, int count) {
         System.out.println(line.format(count));
+    }
+
+    public static void printStatLines(Map<Rank, Integer> lottoRankCounts){
+        printStatLine(StatLine.MATCH_6,lottoRankCounts.get(Rank.FIRST));
+        printStatLine(StatLine.MATCH_5_BONUS,lottoRankCounts.get(Rank.SECOND));
+        printStatLine(StatLine.MATCH_5,lottoRankCounts.get(Rank.THIRD));
+        printStatLine(StatLine.MATCH_4,lottoRankCounts.get(Rank.FOURTH));
+        printStatLine(StatLine.MATCH_3,lottoRankCounts.get(Rank.FIFTH));
     }
 
     public static void printTotalYield(String percentText) {
