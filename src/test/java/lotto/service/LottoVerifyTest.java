@@ -1,9 +1,8 @@
-package lotto;
+package lotto.service;
 
 import lotto.domain.Lotto;
 import lotto.domain.Rank;
 import lotto.domain.WinningLottoNumber;
-import lotto.service.LottoVerify;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,6 @@
-package lotto;
+package lotto.util;
 
 import lotto.global.error.ErrorCode;
-import lotto.util.Parser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
