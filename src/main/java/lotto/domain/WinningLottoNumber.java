@@ -16,6 +16,15 @@ public class WinningLottoNumber {
         this.bonus = bonus;
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+
     public static void validateNumbers(List<Integer> numbers) {
         Validator.requiredSixNumber(numbers);
         Validator.requiredRange1To45(numbers);
