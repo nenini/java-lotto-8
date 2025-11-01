@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.Lotto;
+import lotto.domain.Money;
 import lotto.domain.Rank;
 import lotto.domain.WinningLottoNumber;
 import lotto.service.LottoMachine;
@@ -32,6 +33,11 @@ public class LottoController {
 
         OutputView.printResultHeader();
         OutputView.printStatLines(lottoRankCounts);
+
+        Money money = Money.totalMoney(lottoRankCounts);
+        String rate = Money.ratePrize(money, Money.of(purchase));
+
+        OutputView.printTotalYield(rate);
     }
 
     private int purchaseWithRetry() {
