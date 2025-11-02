@@ -8,18 +8,20 @@ import java.util.*;
 
 public class LottoVerify {
     public Map<Rank, Integer> verify(List<Lotto> lottoBundle, WinningLottoNumber winningLottoNumber) {
-        Map<Rank, Integer> rankIntegerCounts = initMap();
+        Map<Rank, Integer> rankIntegerCounts = initRankCount();
         List<Integer> winningNumbers = new ArrayList<>(winningLottoNumber.getNumbers());
+
         for (Lotto lotto : lottoBundle) {
             int matches = countMatches(lotto.getNumbers(), winningNumbers);
-            boolean  bonusMatch=lotto.getNumbers().contains(winningLottoNumber.getBonus());
-            Rank rank=Rank.of(matches, bonusMatch);
-            rankIntegerCounts.put(rank, rankIntegerCounts.get(rank)+1);
+            boolean bonusMatch = lotto.getNumbers().contains(winningLottoNumber.getBonus());
+            Rank rank = Rank.of(matches, bonusMatch);
+            rankIntegerCounts.put(rank, rankIntegerCounts.get(rank) + 1);
         }
+
         return rankIntegerCounts;
     }
 
-    public Map<Rank, Integer> initMap() {
+    public Map<Rank, Integer> initRankCount() {
         Map<Rank, Integer> map = new EnumMap<>(Rank.class);
         for (Rank rank : Rank.values()) {
             map.put(rank, 0);
